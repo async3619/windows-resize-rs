@@ -1,0 +1,63 @@
+{
+  "branches": ["main"],
+  "ci": true,
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalCommits",
+        "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
+        },
+        "presetConfig": {
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features ✨"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes \uD83D\uDC1E"
+            },
+            {
+              "type": "chore",
+              "section": "Internal \uD83E\uDDF0",
+              "hidden": true
+            },
+            {
+              "type": "refactor",
+              "section": "Internal \uD83E\uDDF0",
+              "hidden": false
+            },
+            {
+              "type": "perf",
+              "section": "Internal \uD83E\uDDF0",
+              "hidden": false
+            }
+          ]
+        }
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "sh ./tools/versioning.sh ${nextRelease.version}"
+      }
+    ],
+    "@semantic-release/github",
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["CHANGELOG.md", "package.json", "npm/**/package.json"],
+        "message": "chore(📦): ${nextRelease.version}\n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}

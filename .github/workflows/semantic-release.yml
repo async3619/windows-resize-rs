@@ -1,0 +1,55 @@
+name: Semantic Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semantic-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+
+      - name: Cache node_modules
+        id: node-cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+      - name: Install nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Install rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install yarn, napi
+        run: |
+          npm install -g yarn
+          npm install -g @napi-rs/cli
+      - name: Prepare package
+        run: |
+          yarn
+      - name: Build
+        run: |
+          yarn build
+      - name: Test
+        env:
+          FORCE_COLOR: 3
+        run: |
+          yarn test
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
