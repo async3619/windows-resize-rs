@@ -1,27 +1,27 @@
 {
-  "name": "windows-resize-rs-win32-x64-msvc",
-  "version": "0.0.0",
-  "author": {
-    "url": "sophia-dev.io",
-    "name": "Sophia",
-    "email": "me@sophia-dev.io"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/async3619/windows-resize-rs"
-  },
-  "os": [
-    "win32"
-  ],
-  "cpu": [
-    "x64"
-  ],
-  "main": "windows-resize-rs.win32-x64-msvc.node",
-  "files": [
-    "windows-resize-rs.win32-x64-msvc.node"
-  ],
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10"
-  }
+    "name": "windows-resize-rs-win32-x64-msvc",
+    "version": "1.0.0",
+    "author": {
+        "url": "sophia-dev.io",
+        "name": "Sophia",
+        "email": "me@sophia-dev.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/async3619/windows-resize-rs"
+    },
+    "os": [
+        "win32"
+    ],
+    "cpu": [
+        "x64"
+    ],
+    "main": "windows-resize-rs.win32-x64-msvc.node",
+    "files": [
+        "windows-resize-rs.win32-x64-msvc.node"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": ">= 10"
+    }
 }

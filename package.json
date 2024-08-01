@@ -1,60 +1,60 @@
 {
-  "name": "windows-resize-rs",
-  "version": "0.0.0",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "author": {
-    "url": "sophia-dev.io",
-    "name": "Sophia",
-    "email": "me@sophia-dev.io"
-  },
-  "napi": {
     "name": "windows-resize-rs",
-    "triples": {
-      "defaults": false,
-      "additional": [
-        "aarch64-pc-windows-msvc",
-        "x86_64-pc-windows-msvc",
-        "i686-pc-windows-msvc"
-      ]
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/async3619/windows-resize-rs"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@napi-rs/cli": "^2.18.4",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.0",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^10.1.3",
-    "@semantic-release/npm": "^12.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.1",
-    "@types/node": "^22.0.2",
-    "ava": "^6.0.1",
-    "conventional-changelog-conventionalcommits": "^8.0.0",
-    "fast-glob": "^3.3.2",
-    "semantic-release": "^24.0.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
-  },
-  "ava": {
-    "timeout": "3m"
-  },
-  "engines": {
-    "node": ">= 10"
-  },
-  "scripts": {
-    "artifacts": "napi artifacts",
-    "build": "napi build --platform --release",
-    "build:debug": "napi build --platform",
-    "prepublishOnly": "napi prepublish -t npm",
-    "test": "ava",
-    "universal": "napi universal",
-    "version": "napi version"
-  },
-  "packageManager": "yarn@4.3.1"
+    "version": "1.0.0",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "author": {
+        "url": "sophia-dev.io",
+        "name": "Sophia",
+        "email": "me@sophia-dev.io"
+    },
+    "napi": {
+        "name": "windows-resize-rs",
+        "triples": {
+            "defaults": false,
+            "additional": [
+                "aarch64-pc-windows-msvc",
+                "x86_64-pc-windows-msvc",
+                "i686-pc-windows-msvc"
+            ]
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/async3619/windows-resize-rs"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@napi-rs/cli": "^2.18.4",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/commit-analyzer": "^13.0.0",
+        "@semantic-release/exec": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^10.1.3",
+        "@semantic-release/npm": "^12.0.1",
+        "@semantic-release/release-notes-generator": "^14.0.1",
+        "@types/node": "^22.0.2",
+        "ava": "^6.0.1",
+        "conventional-changelog-conventionalcommits": "^8.0.0",
+        "fast-glob": "^3.3.2",
+        "semantic-release": "^24.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.4"
+    },
+    "ava": {
+        "timeout": "3m"
+    },
+    "engines": {
+        "node": ">= 10"
+    },
+    "scripts": {
+        "artifacts": "napi artifacts",
+        "build": "napi build --platform --release",
+        "build:debug": "napi build --platform",
+        "prepublishOnly": "napi prepublish -t npm",
+        "test": "ava",
+        "universal": "napi universal",
+        "version": "napi version"
+    },
+    "packageManager": "yarn@4.3.1"
 }
