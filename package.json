@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "main": "index.js",
   "types": "index.d.ts",
+  "author": {
+    "url": "sophia-dev.io",
+    "name": "Sophia",
+    "email": "me@sophia-dev.io"
+  },
   "napi": {
     "name": "windows-resize-rs",
     "triples": {
@@ -13,6 +18,10 @@
         "i686-pc-windows-msvc"
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/async3619/windows-resize-rs"
   },
   "license": "MIT",
   "devDependencies": {
