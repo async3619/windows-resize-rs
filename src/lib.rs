@@ -3,13 +3,19 @@
 #[macro_use]
 extern crate napi_derive;
 
+use windows::core::{s};
 use windows::Win32::Foundation::{HWND, LPARAM, LRESULT, TRUE, WPARAM};
 use windows::Win32::UI::Shell::{DefSubclassProc, SetWindowSubclass};
-use windows::Win32::UI::WindowsAndMessaging::{HTBOTTOM, HTBOTTOMLEFT, HTBOTTOMRIGHT, HTCLIENT, HTRIGHT, HTTOPRIGHT, WM_NCHITTEST};
+use windows::Win32::UI::WindowsAndMessaging::{FindWindowExA, HTBOTTOM, HTBOTTOMLEFT, HTBOTTOMRIGHT, HTCLIENT, HTRIGHT, HTTOPRIGHT, WM_NCHITTEST};
 
-fn inject(handle: HWND) -> bool {
+fn inject(mut handle: HWND) -> bool {
   unsafe {
-     SetWindowSubclass(handle, Some(subclass_proc), 0, 0) == TRUE
+    let legacy_window_handle = FindWindowExA(handle, None, s!("Chrome_RenderWidgetHostHWND"), None);
+    if legacy_window_handle.is_ok() {
+      handle = legacy_window_handle.unwrap();
+    }
+
+    SetWindowSubclass(handle, Some(subclass_proc), 0, 0) == TRUE
   }
 }
 
