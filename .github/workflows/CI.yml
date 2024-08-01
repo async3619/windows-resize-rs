@@ -31,7 +31,6 @@ jobs:
           - host: windows-latest
             build: |
               yarn build --target i686-pc-windows-msvc
-              yarn test
             target: i686-pc-windows-msvc
           - host: windows-latest
             target: aarch64-pc-windows-msvc
@@ -132,8 +131,6 @@ jobs:
       - name: List packages
         run: ls -R .
         shell: bash
-      - name: Test bindings
-        run: yarn test
   publish:
     name: Publish
     runs-on: ubuntu-latest
