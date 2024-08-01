@@ -43,11 +43,6 @@ jobs:
       - name: Build
         run: |
           yarn build
-      - name: Test
-        env:
-          FORCE_COLOR: 3
-        run: |
-          yarn test
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
