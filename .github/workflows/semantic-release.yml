@@ -28,7 +28,7 @@ jobs:
       - name: Install nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "20.x"
 
       - name: Install rust
         uses: dtolnay/rust-toolchain@stable
