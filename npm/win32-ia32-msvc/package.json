@@ -4,9 +4,6 @@
   "os": [
     "win32"
   ],
-  "cpu": [
-    "ia32"
-  ],
   "main": "windows-resize-rs.win32-ia32-msvc.node",
   "files": [
     "windows-resize-rs.win32-ia32-msvc.node"
